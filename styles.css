@@ -11,46 +11,46 @@ body {
     align-items: center;
     padding: 10px 20px;
 }
-  
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
 }
-  
+
 .menu {
     display: flex;
 }
-  
+
 .menu-item {
     color: #fff;
     text-decoration: none;
     margin-left: 20px;
 }
-  
+
 .menu-item:hover {
     text-decoration: underline;
 }
-  
+
 /* Grid styles */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 4 videos in each row */
+    grid-template-columns: repeat(1, 1fr); /* Display 1 column for mobile */
     gap: 5px;
-    min-height: calc(20vh - 100px); /* Adjust the value to leave space for the footer */
-    margin-top: 100px;
+    min-height: calc(10vh - 100px); /* Adjust the value to leave space for the footer */
+    margin-top: 30px;
     margin-left: 10%;
     margin-right: 10%;
 }
-  
+
 .grid-item {
     width: 100%; /* Ensure each grid item takes full width */
 }
-  
+
 .grid-item iframe {
     width: 100%;
     height: 30vh;
 }
-  
+
 /* Footer styles */
 footer {
     background-color: #080909;
@@ -62,7 +62,28 @@ footer {
     bottom: 0;
 }
 
-.title{
+.title {
     font-size: 50px;
     text-align: center;
+}
+
+/* Media query for mobile view */
+@media (min-width: 500px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr); /* Display 2 columns for tablets */
+    }
+    .title {
+        font-size: 30px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* Display 3 columns for larger screens */
+    }
+    .title {
+        font-size: 20px;
+        text-align: center;
+    }
 }
