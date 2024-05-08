@@ -34,16 +34,19 @@ body {
 /* Grid styles */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* Display 1 column for mobile */
+    grid-template-columns: repeat(1, 1fr);
+    /* Display 1 column for mobile */
     gap: 5px;
-    min-height: calc(10vh - 100px); /* Adjust the value to leave space for the footer */
+    min-height: calc(1vh - 100px);
+    /* Adjust the value to leave space for the footer */
     margin-top: 30px;
     margin-left: 10%;
     margin-right: 10%;
 }
 
 .grid-item {
-    width: 100%; /* Ensure each grid item takes full width */
+    width: 100%;
+    /* Ensure each grid item takes full width */
 }
 
 .grid-item iframe {
@@ -51,27 +54,71 @@ body {
     height: 30vh;
 }
 
+.pricing-section.leaflet {
+    padding: 30px 0;
+    margin: 50px;
+}
+
+.leaflet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+   
+}
+
+.pricing-plan {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-plan h3 {
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pricing-plan .price {
+    margin-left: auto;
+    /* Moves the price to the right */
+}
+
+.pricing-plan p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.pricing-plan ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pricing-plan ul li {
+    margin-bottom: 10px;
+}
+
+
 /* Footer styles */
 footer {
     background-color: #080909;
     color: #fff;
-    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
     width: 100%;
-    position: fixed;
     bottom: 0;
-}
-
-.title {
-    font-size: 50px;
-    text-align: center;
 }
 
 /* Media query for mobile view */
 @media (min-width: 500px) {
     .grid-container {
-        grid-template-columns: repeat(1, 1fr); /* Display 2 columns for tablets */
+        grid-template-columns: repeat(1, 1fr);
+        /* Display 2 columns for tablets */
     }
+
     .title {
         font-size: 30px;
         text-align: center;
@@ -80,10 +127,12 @@ footer {
 
 @media (min-width: 900px) {
     .grid-container {
-        grid-template-columns: repeat(3, 1fr); /* Display 3 columns for larger screens */
+        grid-template-columns: repeat(3, 1fr);
+        /* Display 3 columns for larger screens */
     }
+
     .title {
-        font-size: 20px;
+        font-size: 40px;
         text-align: center;
     }
 }
