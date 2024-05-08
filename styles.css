@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #080909;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+  
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+  
+.menu {
+    display: flex;
+}
+  
+.menu-item {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+  
+.menu-item:hover {
+    text-decoration: underline;
+}
+  
+/* Grid styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 videos in each row */
+    gap: 5px;
+    min-height: calc(20vh - 100px); /* Adjust the value to leave space for the footer */
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+  
+.grid-item {
+    width: 100%; /* Ensure each grid item takes full width */
+}
+  
+.grid-item iframe {
+    width: 100%;
+    height: 30vh;
+}
+  
+/* Footer styles */
+footer {
+    background-color: #080909;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.title{
+    font-size: 50px;
+    text-align: center;
+}
