@@ -7,11 +7,54 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-ui/5.2.3/material.min.css">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const carouselInner = document.querySelector(".carousel-inner");
+        const prevButton = document.querySelector(".carousel-prev");
+        const nextButton = document.querySelector(".carousel-next");
+        const slides = carouselInner.querySelectorAll("iframe");
+    
+        let currentIndex = 0;
+        let slideWidth = 0;
+    
+        function calculateSlideWidth() {
+            slideWidth = slides[currentIndex].offsetWidth;
+            const slideStyle = window.getComputedStyle(slides[currentIndex]);
+            slideWidth += parseInt(slideStyle.marginLeft) + parseInt(slideStyle.marginRight);
+        }
+    
+        function slideTo(index) {
+            if (index < 0 || index >= slides.length) return;
+            currentIndex = index;
+            const offset = -currentIndex * slideWidth;
+            carouselInner.style.transform = `translateX(${offset}px)`;
+        }
+    
+        prevButton.addEventListener("click", function () {
+            slideTo(currentIndex - 1);
+        });
+    
+        nextButton.addEventListener("click", function () {
+            slideTo(currentIndex + 1);
+        });
+    
+        // Recalculate slide width when window is resized
+        window.addEventListener("resize", function () {
+            calculateSlideWidth();
+            slideTo(currentIndex); // Ensure current slide stays in view after resize
+        });
+    
+        // Initial setup
+        calculateSlideWidth();
+    });
+    
+      
+  </script>
 </head>
 <body>
 
 <nav class="navbar">
-  <div class="logo">OCD</div>
+  <div class="logo"><img src="./logo.png" height="100px"/></div>
   <div class="menu">
     <a href="#" class="menu-item">Home</a>
     <a href="#" class="menu-item">About</a>
@@ -20,34 +63,19 @@
 </nav>
 
 <section class="image-section">
-    <div class="image-text"> Superior Car Cleaning</div>
-    <img class="jumbo" src="https://themattfinish.co.uk/wp-content/uploads/2021/11/DSC06743-2000x1329.jpg" alt="Car wash image">
-  </section>
+    <img class="jumbo" src="./car.png" alt="Car wash image">
+</section>
   
-
-<div class="grid-container">
-  <!-- Replace the image URLs with YouTube video embeds -->
-  <div class="grid-item">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/SVYXY9Angvs?si=xwZRKVgqBY3-WVK7&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="carousel">
+    <div class="carousel-inner">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VUX1_mt0L_I?si=19MZYbaklm1qL2CG&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Pmc_fO1WhbE?si=2mm19W5hs-5pD6mE&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <button class="carousel-prev">Previous</button>
+    <button class="carousel-next">Next</button>
   </div>
-  <div class="grid-item">
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="grid-item">
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="grid-item">
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="grid-item">
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="grid-item">
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <!-- Repeat the above pattern for other videos -->
-</div>
-
+  
+  
 
 
 <!-- Car detailing prices section -->
@@ -59,8 +87,6 @@
             <p>£20 CAR <br>PICKUP FEE</p>
           </div>
         <div class="highlight"> <h3>£65 PREMIUM <p class="price">3 HRS</li></h3></div>
-       
-
 
         <h5>Exterior</h5>
         
@@ -106,9 +132,29 @@
   </section>
 
   <footer>
-    &copy; 2024 Obsessive Car Detail
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Obsessive Car Detail Logo">
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2024 Obsessive Car Detail. All rights reserved.</p>
+        <p>Phone: 07784452854 | Email: info@obsessivecardetail.com</p>
+      </div>
+      <div class="footer-social">
+        <ul>
+          <li><a href="https://facebook.com/obsessivecardetail"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/obsessivecar"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://instagram.com/obsessivecardetail"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://youtube.com/obsessivecardetail"><i class="fab fa-youtube"></i></a></li>
+        </ul>
+      </div>
+    </div>
   </footer>
+  
 
-<script src="scripts.js"></script>
+<script src="scripts.js">
+
+    
+</script>
 </body>
 </html>
